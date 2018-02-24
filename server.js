@@ -26,7 +26,7 @@ var articleOne={
 var htmltemplate=`
 <html>
     <head>
-        <title> Article-one</title>
+        <title> ${title} </title>
     
        <link href="/ui/style.css" rel="stylesheet" />
     </head>
@@ -40,10 +40,10 @@ var htmltemplate=`
             <hr/>
             
             <h3>
-                Article one
+                ${heading}
             </h3>
             <p>
-                This is the content bro.
+                ${content}
             </p>
        
     </div>
