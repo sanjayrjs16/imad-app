@@ -23,33 +23,39 @@ var articleOne={
             </p>`
 };
 
-var htmltemplate=`
-<html>
-    <head>
-        <title> ${title} </title>
-    
-       <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-
-<body>
-    <div class="container">
+function createtemplate(data){
+ 
+ var title=data.title;
+ var heading=data.heading;
+ var content=data.content;
+    var htmltemplate=`
+    <html>
+        <head>
+            <title> ${title} </title>
         
-            <div>
-                <a href="/">Home</a>
-            </div>
-            <hr/>
+           <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+    
+    <body>
+        <div class="container">
             
-            <h3>
-                ${heading}
-            </h3>
-            <p>
-                ${content}
-            </p>
-       
-    </div>
- </body>
-</html>
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <hr/>
+                
+                <h3>
+                    ${heading}
+                </h3>
+                <p>
+                    ${content}
+                </p>
+           
+        </div>
+     </body>
+    </html>
 `
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
