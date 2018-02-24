@@ -22,6 +22,34 @@ var articleOne={
                 This is the content bro.
             </p>`
 };
+
+var htmltemplate=`
+<html>
+    <head>
+        <title> Article-one</title>
+    
+       <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+
+<body>
+    <div class="container">
+        
+            <div>
+                <a href="/">Home</a>
+            </div>
+            <hr/>
+            
+            <h3>
+                Article one
+            </h3>
+            <p>
+                This is the content bro.
+            </p>
+       
+    </div>
+ </body>
+</html>
+`
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
