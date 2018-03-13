@@ -114,6 +114,17 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+function hash(input,salt){
+    var hashed=crypto.pbkdf2Sync(input,salt,100000, 512, 'sha512');
+    return hashed.toString('hex');
+}
+app.get('/hash/:input',function(req,res){
+    
+var hashedString = hash(req.params.input,'shit-just-do-it');
+res.send(hashedSring);
+    
+});
+
 var pool = new Pool(config);
 app.get('/test-db',function(req,res){
 pool.query('SELECT * FROM test', function(err, result){
@@ -160,16 +171,6 @@ app.get('/articles/:articleName', function (req, res) {
   
 });
 
-function hash(input,salt){
-    var hashed=crypto.pbkdf2Sync(input,salt,100000, 512, 'sha512');
-    return hashed.toString('hex');
-}
-app.get('/hash/:input',function(req,res){
-    
-var hashedString = hash(req.params.input,'shit-just-do-it');
-res.send(hashedSring);
-    
-});
 
 
 app.get('/ui/style.css', function (req, res) {
