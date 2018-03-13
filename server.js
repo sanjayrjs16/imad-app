@@ -121,7 +121,7 @@ function hash(input,salt){
 app.get('/hash/:input',function(req,res){
     
 var hashedString = hash(req.params.input,'shit-just-do-it');
-res.send(hashedSring);
+res.send(hashedString);
     
 });
 
