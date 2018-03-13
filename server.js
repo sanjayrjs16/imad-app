@@ -12,6 +12,7 @@ var config = {
  
 };
 var app = express();
+var crypto=require('crypto'); 
 app.use(morgan('combined'));
 
 var articles ={ 
@@ -159,6 +160,15 @@ app.get('/articles/:articleName', function (req, res) {
   
 });
 
+function hash(input){
+    var hashed=crypto.pbkdf2Sync();
+}
+app.get('/hash/:input',function(req,res){
+    
+var hashedString = hash(req.params.input);
+res.send(hashedSring);
+    
+});
 
 
 app.get('/ui/style.css', function (req, res) {
